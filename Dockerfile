@@ -2,7 +2,7 @@ FROM fedora:latest
 LABEL maintainer "Ferreol Soulez <ferreol.soulez@univ-lyon1.fr>"
 ENV GRAVITYKIT=gravity-kit-1.6.6 
 ENV GRAVITYVERSION=1.6.6
-RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget subversion perl bzip2 gnuplot zlib-devel curl -y  && \
+RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget subversion perl bzip2 gnuplot zlib-devel curl libcurl -y  && \
     cd $HOME  && \
     wget -nv  https://ftp.eso.org/pub/dfs/pipelines/instruments/gravity/$GRAVITYKIT.tar.gz && \
     tar xzf $GRAVITYKIT.tar.gz && rm -f $GRAVITYKIT.tar.gz  && \
