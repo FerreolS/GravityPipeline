@@ -16,7 +16,7 @@ RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget su
     cd $HOME  && wget  -nv ftp://ftp.eso.org/pub/eclipse/latest/eclipse-main-5.0.0.tar.gz && tar -xvzf eclipse-main-5.0.0.tar.gz && \
     rm eclipse-main-5.0.0.tar.gz && cd eclipse-5.0.0/ && ./configure && make && mv  bin/* /usr/local/bin/. && cd .. && rm -rf eclipse-5.0.0 && \
     cd $HOME && svn co https://version-lesia.obspm.fr:/repos/DRS_gravity/gravi_tools3  && \
-    echo "y" | pip3 install astropy matplotlib scipy joblib reportlab pdfrw && \
+    echo "y" | pip3 install astropy matplotlib scipy joblib reportlab pdfrw svglib && \
     export PATH=$PATH:$HOME/gravi_tools3:$HOME/gravi_tools3/gravi_shell:$HOME/gravi_tools3/gravi_quicklook && \
     export PYTHONPATH=$HOME/gravi_tools3:$PYTHONPATH  && \
     dnf remove  subversion -y
