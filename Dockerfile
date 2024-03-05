@@ -15,12 +15,12 @@ RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget su
     mkdir -p /work/data && ln -s /usr/local/calib/gravity-$GRAVITYVERSION /work/common_calibration && \
     cd $HOME  && wget  -nv ftp://ftp.eso.org/pub/eclipse/latest/eclipse-main-5.0.0.tar.gz && tar -xvzf eclipse-main-5.0.0.tar.gz && \
     rm eclipse-main-5.0.0.tar.gz && cd eclipse-5.0.0/ && ./configure && make && mv  bin/* /usr/local/bin/. && cd .. && rm -rf eclipse-5.0.0 && \
-    cd $HOME  &&  wget  -nv https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh  && \
-    bash ./Miniconda2-latest-Linux-x86_64.sh -b  && rm -f Miniconda2-latest-Linux-x86_64.sh && \
-    export PATH=$PATH:$HOME/miniconda2/bin  && \
+    cd $HOME  &&  wget  -nv https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
+    bash ./Miniconda3-latest-Linux-x86_64.sh -b  && rm -f Miniconda3-latest-Linux-x86_64.sh && \
+    export PATH=$PATH:$HOME/miniconda3/bin  && \
     conda install -y reportlab astropy && conda install -y -c conda-forge pdfrw && \
     svn co https://version-lesia.obspm.fr:/repos/DRS_gravity/gravi_tools3  && \
-    echo "y" | pip install pyfits astropy matplotlib scipy && \
+    echo "y" | pip3 install astropy matplotlib scipy && \
     export PATH=$PATH:$HOME/gravi_tools3:$HOME/gravi_tools3/gravi_shell:$HOME/gravi_tools3/gravi_quicklook && \
     export PYTHONPATH=$HOME/gravi_tools3:$PYTHONPATH  && \
     dnf remove  subversion -y
