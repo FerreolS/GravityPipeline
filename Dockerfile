@@ -23,6 +23,7 @@ RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget su
     echo "y" | pip3 install astropy matplotlib scipy joblib && \
     export PATH=$PATH:$HOME/gravi_tools3:$HOME/gravi_tools3/gravi_shell:$HOME/gravi_tools3/gravi_quicklook && \
     export PYTHONPATH=$HOME/gravi_tools3:$PYTHONPATH  && \
+    rm -f /usr/bin/python3 && ln -s /root/miniconda3/bin/python3 /usr/bin/python3 && \
     dnf remove  subversion -y
 WORKDIR /work/data
 ENV PATH=/root/.local/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/gravi_tools3:/root/gravi_tools3/gravi_shell:/root/gravi_tools3/gravi_quicklook:/root/miniconda2/bin
