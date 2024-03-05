@@ -18,9 +18,10 @@ RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget su
     cd $HOME  &&  wget  -nv https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
     bash ./Miniconda3-latest-Linux-x86_64.sh -b  && rm -f Miniconda3-latest-Linux-x86_64.sh && \
     export PATH=$PATH:$HOME/miniconda3/bin  && \
+    rm -f /usr/bin/python3 && ln -s /root/miniconda3/bin/python3 /usr/bin/python3 && \
     conda install -y reportlab astropy && conda install -y -c conda-forge pdfrw && \
     svn co https://version-lesia.obspm.fr:/repos/DRS_gravity/gravi_tools3  && \
-    echo "y" | pip3 install astropy matplotlib scipy && \
+    echo "y" | pip3 install astropy matplotlib scipy joblib && \
     export PATH=$PATH:$HOME/gravi_tools3:$HOME/gravi_tools3/gravi_shell:$HOME/gravi_tools3/gravi_quicklook && \
     export PYTHONPATH=$HOME/gravi_tools3:$PYTHONPATH  && \
     dnf remove  subversion -y
