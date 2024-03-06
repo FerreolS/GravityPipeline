@@ -10,7 +10,7 @@ RUN dnf install dnf-plugins-core  libffi-devel java-latest-openjdk-devel wget su
     sed -i '911d' install_pipeline && sed -i 's/\&confirm(/0 and \&confirm(/g' install_pipeline && \
     sed -i '0,/   -t STDIN ||/s/    -t STDIN ||/  -t STDIN;/g' install_pipeline  && \
     echo "n"  |  ./install_pipeline   && \
-    rm -rf gravity-calib-$GRAVITYVERSION && rm -rf cfitsio-3.49* esorex-3.13.5* fftw-3.3.9* cpl-7.1.4* erfa-1.7.1* gsl-2.6* wcslib-7.6* &&\
+    rm -rf gravity-calib-$GRAVITYVERSION && rm -rf cfitsio* esorex* fftw* cpl* erfa* gsl* wcslib* *.tar.gz &&\
     cd gravity-$GRAVITYVERSION/ && make clean && \
     mkdir -p /work/data && ln -s /usr/local/calib/gravity-$GRAVITYVERSION /work/common_calibration && \
     cd $HOME  && wget  -nv ftp://ftp.eso.org/pub/eclipse/latest/eclipse-main-5.0.0.tar.gz && tar -xvzf eclipse-main-5.0.0.tar.gz && \
